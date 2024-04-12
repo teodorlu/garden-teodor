@@ -31,3 +31,5 @@
 /classes
 /target
 .garden/
+
+/.local
