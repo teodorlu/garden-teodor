@@ -41,7 +41,9 @@
 
 (comment
   ;; test storage locally
-  (spit (io/file (garden-storage) "test4.txt") "please persist this"))
+  (spit (io/file (garden-storage) (str "test" (rand-int 10) ".txt")) "please persist this")
+
+  :rcf)
 
 (defn storage-fragment []
   [:div.mt-5
