@@ -15,6 +15,9 @@
    ;; garden-cron
    [nextjournal.garden-cron :as garden-cron]))
 
+(defn garden-storage []
+  (or (System/getenv "GARDEN_STORAGE") ".local/garden-storage"))
+
 (defn html-response [req body]
   (assoc req
          :status 200
@@ -34,11 +37,11 @@
 
 ;; list persistent storage
 (defn ls-storage []
-  (.list (io/file (System/getenv "GARDEN_STORAGE"))))
+  (.list (io/file (garden-storage))))
 
 (comment
   ;; test storage locally
-  (spit (io/file (System/getenv "GARDEN_STORAGE") "test4.txt") "please persist this"))
+  (spit (io/file (garden-storage) "test4.txt") "please persist this"))
 
 (defn storage-fragment []
   [:div.mt-5
