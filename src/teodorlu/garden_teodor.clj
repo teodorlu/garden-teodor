@@ -1,18 +1,19 @@
-(ns garden-teodor
-  (:require [clojure.java.io :as io]
-            [org.httpkit.server :as server]
-            ;; garden-id
-            [hiccup.page :as page]
-            [ring.middleware.session :as session]
-            [ring.middleware.session.cookie :refer [cookie-store]]
-            [nextjournal.garden-id :as garden-id]
-            ;; garden-email
-            [ring.middleware.params :as ring.params]
-            [nextjournal.garden-email :as garden-email]
-            [nextjournal.garden-email.render :as render-email]
-            [nextjournal.garden-email.mock :as mock-email]
-            ;; garden-cron
-            [nextjournal.garden-cron :as garden-cron]))
+(ns teodorlu.garden-teodor
+  (:require
+   [clojure.java.io :as io]
+   [org.httpkit.server :as server]
+   ;; garden-id
+   [hiccup.page :as page]
+   [ring.middleware.session :as session]
+   [ring.middleware.session.cookie :refer [cookie-store]]
+   [nextjournal.garden-id :as garden-id]
+   ;; garden-email
+   [ring.middleware.params :as ring.params]
+   [nextjournal.garden-email :as garden-email]
+   [nextjournal.garden-email.render :as render-email]
+   [nextjournal.garden-email.mock :as mock-email]
+   ;; garden-cron
+   [nextjournal.garden-cron :as garden-cron]))
 
 (defn html-response [req body]
   (assoc req
