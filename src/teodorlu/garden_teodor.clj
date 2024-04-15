@@ -18,8 +18,8 @@
 (defn garden-storage []
   (or (System/getenv "GARDEN_STORAGE") ".local/garden-storage"))
 
-(defn html-response [response body]
-  (assoc response
+(defn html-response [req body]
+  (assoc req
          :status 200
          :headers {"content-type" "text/html"}
          :body body))
