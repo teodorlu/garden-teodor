@@ -18,8 +18,8 @@
 (defn garden-storage []
   (or (System/getenv "GARDEN_STORAGE") ".local/garden-storage"))
 
-(defn html-response [req body]
-  (assoc req
+(defn html-response [response body]
+  (assoc response
          :status 200
          :headers {"content-type" "text/html"}
          :body body))
@@ -184,3 +184,7 @@
                                          opts))]
     (println (format "server started on port %s"
                      (server/server-port server)))))
+
+(comment
+  (start! {})
+  :rcf)
